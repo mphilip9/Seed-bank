@@ -1,10 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
-const Search = () => {
+const Search = ({searchZones}) => {
+  const [zoneSearch, setZoneSearch] = useState('')
+
+  const handleChange = (e) => {
+    setZoneSearch(e.target.value)
+
+  }
+  const handleClick = (e) => {
+    searchZones(zoneSearch)
+    setZoneSearch("")
+    e.preventDefault()
+  }
   return (
     <div>
-    <input></input>
+    <input onChange={handleChange} placeholder="Search Climate Zone" name="zoneSearch" value={zoneSearch}></input>
+    <button type="button" onClick={handleClick}>Search</button>
     </div>
   )
 }

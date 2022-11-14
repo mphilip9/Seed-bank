@@ -6,17 +6,23 @@ import axios from 'axios'
 import './assets/App.css';
 
 function App() {
+  const [currentZone, setCurrentZone] = useState("7a")
 
-  const connectToAPI = () => {
-    axios.get('/api').then(data => console.log(data)).catch(error => console.log(error))
+  const searchZones = (zone) => {
+    console.log(zone)
+    axios.get('/api', {params: {zone: zone}}).then(data => {
+      setCurrentZone(data.data.zone)
+    }).catch(error => console.log(error))
   }
-  useEffect(() => {
-    connectToAPI()
-    console.log(process.env.REACT_APP_AUTH0_DOMAIN)
-  }, [])
+
+  // useEffect(() => {
+  // }, [])
   return (
     <div className="App">
-      <Search />
+      <div className="search">
+        <h2>Current Climate Zone: {currentZone}</h2>
+      <Search searchZones={searchZones}/>
+      </div>
       <AuthenticationButton />
     </div>
   );
