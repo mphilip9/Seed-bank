@@ -8,10 +8,10 @@ CREATE TABLE plant_dates
   plant_id serial PRIMARY KEY,
   plant_name text,
   latin_name text,
-  transplant_start text,
-  transplant_end text,
-  direct_sowing_start text,
-  direct_sowing_end text,
+  transplant_start date,
+  transplant_end date,
+  direct_sowing_start date,
+  direct_sowing_end date,
   germination_time integer,
   time_to_harvest integer
 );
@@ -26,6 +26,13 @@ CREATE TABLE plant_detail
   spacing text,
   special_instructions text,
   fertilizer text
+);
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users
+(
+  id serial PRIMARY KEY,
+  zone text
 );
 
 copy plant_dates (plant_name, latin_name, transplant_start, transplant_end, direct_sowing_start, direct_sowing_end,

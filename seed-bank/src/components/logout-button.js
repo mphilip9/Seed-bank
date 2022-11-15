@@ -3,15 +3,17 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const LogoutButton = () => {
+const LogoutButton = ({user}) => {
   const { logout } = useAuth0();
   return (
     <button
       className="btn btn-danger btn-block"
-      onClick={() =>
+      onClick={() => {
+        console.log(user)
         logout({
           returnTo: window.location.origin,
         })
+      }
       }
     >
       Log Out
