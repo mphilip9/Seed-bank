@@ -1,74 +1,42 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 const ByMonth = ({currentPlants}) => {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Common Name</StyledTableCell>
-            <StyledTableCell align="right">Direct Sowing</StyledTableCell>
-            <StyledTableCell align="right">Transplant</StyledTableCell>
-            <StyledTableCell align="right">Latin Name</StyledTableCell>
-            <StyledTableCell align="right">Time to harvest</StyledTableCell>
-            <StyledTableCell align="right">More info</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {currentPlants.map((row) => (
-            <StyledTableRow key={row.plant_id}>
-              <StyledTableCell component="th" scope="row">
-                {row.plant_name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.latin_name}</StyledTableCell>
-              <StyledTableCell align="right">{row.latin_name}</StyledTableCell>
-              <StyledTableCell align="right">{row.germination_time}</StyledTableCell>
-              <StyledTableCell align="right">{row.time_to_harvest}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div className="pt-10">
+    <table className="min-w-full text-left border table-auto">
+        <thead className="border-b bg-gray-800">
+    <tr>
+      <th scope="col" className="text-sm font-medium text-white px-6 py-4">Common Name</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Latin Name</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Transplant/Indoors</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Direct Sowing</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Time to Harvest</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Germination time</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">More Info</th>
+      </tr>
+  </thead>
+  <tbody>
+  {currentPlants.map(row => {
+    return(
+    <tr key={row.plant_id}>
+         <td>{row.plant_name}</td>
+         <td>{row.latin_name}</td>
+         <td >Add me</td>
+         <td >Add me</td>
+         <td>{row.time_to_harvest}</td>
+         <td>{row.germination_time}</td>
+         <td>More Info</td>
+      </tr>
+    )
+      })}
+  </tbody>
+    </table>
+    </div>
   );
 }
+
+
 
 export default ByMonth;

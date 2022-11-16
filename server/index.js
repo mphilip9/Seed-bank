@@ -8,7 +8,7 @@ const app = express();
 
 app.get("/api", controllers.searchPlants);
 
-app.get("/api/users", )
+app.get("/api/users", controllers.getUserData)
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

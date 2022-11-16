@@ -32,9 +32,14 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
   id serial PRIMARY KEY,
-  zone text
+  sub text UNIQUE,
+  email text,
+  zone text,
+  created_at TIMESTAMPTZ DEFAULT Now()
 );
 
 copy plant_dates (plant_name, latin_name, transplant_start, transplant_end, direct_sowing_start, direct_sowing_end,
  germination_time, time_to_harvest) FROM
  '/Users/angelacarrasco/Downloads/plant_dates.csv' DELIMITER ',' CSV HEADER QUOTE '"' ESCAPE '''';
+
+ CREATE UNIQUE INDEX idx_user_sub ON users (sub);
