@@ -13,7 +13,7 @@ const ByMonth = ({currentPlants}) => {
       <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Second Planting</th>
       <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Days to Maturity</th>
       <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Annual/Perennial</th>
-      <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Add to plantings</th>
+      <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Need more info?</th>
 
       </tr>
   </thead>
@@ -28,7 +28,7 @@ const ByMonth = ({currentPlants}) => {
          {row.second_planting_start ? <td >{row.second_planting_start} -- {row.second_planting_end}</td> : <td></td>}
          <td className=" pt-2 pb-2">{row.time_to_harvest}</td>
          <td className=" pt-2 pb-2">{row.annual_perennial}</td>
-         <td className=" pt-2 pb-2 "><a className="hover:text-sky-500" href={`https://extension.psu.edu/catalogsearch/result/?q=${row.plant_name}`}>More Info</a></td>
+         <td className=" pt-2 pb-2 "><a className="text-sky-500 hover:shadow-sm" href={`https://extension.psu.edu/catalogsearch/result/?q=${row.plant_name}`}>More Info</a></td>
       </tr>
     )
       })}
