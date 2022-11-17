@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { TextField } from '@mui/material';
 
 
-const Search = ({searchZones}) => {
+const Search = ({searchZones, month}) => {
   const [zoneSearch, setZoneSearch] = useState('')
 
   const handleChange = (e) => {
@@ -14,12 +14,12 @@ const Search = ({searchZones}) => {
 
   }
   const handleClick = (e) => {
-    searchZones(zoneSearch)
+    searchZones(zoneSearch, month)
     setZoneSearch("")
     e.preventDefault()
   }
   return (
-    <div className="flex flex-row ...">
+    <div className=" pl-3 flex flex-row ...">
 
 
       <TextField
@@ -39,7 +39,8 @@ const Search = ({searchZones}) => {
           )
         }}
       />
-      <h2 className="pt-3 pl-2">Enter a zipcode to get find seeds you can plant this month in your hardiness zone</h2>
+      <h2 className="collapse pt-3 pl-2 sm:visible">Enter a zipcode to find your hardiness zone</h2>
+
 
     {/* <input onChange={handleChange} placeholder="Search Climate Zone" name="zoneSearch" value={zoneSearch}></input>
     <button type="button" onClick={handleClick}>Search</button> */}

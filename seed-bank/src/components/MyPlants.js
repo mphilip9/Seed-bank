@@ -5,11 +5,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 const MyPlants = ({profileData}) => {
   const { user  } = useAuth0();
   return (
-    <div className="flex flex-row grow">
+    <div className=" flex flex-row grow">
       {/* The profile card */}
       <div class="flex flex-col  ... border-2 grow ">
         <h2>Profile Information</h2>
-        <div class="shrink w-6/12 sm:w-4/12 px-4">
+        <div class="shrink w-2/12  px-4">
         <img alt="seeds by time logo" className="shadow rounded-full max-w-full h-auto align-middle border-none"
               src="https://res.cloudinary.com/de2i2agjs/image/upload/v1668538514/Seeds_By_Time-1_3_nsf525.png"></img>
         </div>

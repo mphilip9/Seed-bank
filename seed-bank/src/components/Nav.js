@@ -7,14 +7,14 @@ const Nav = () => {
   const { user  } = useAuth0();
   const [navbar, setNavbar] = React.useState(false);
   return (
-    <nav className="w-full bg-green-500 shadow">
+    <nav className="w-full bg-emerald-700 shadow text-white">
     <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
-            <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <div className="flex flex-row ...">
-              <img alt="seeds by time logo" className="object-scale-down h-10 w-10"
-              src="https://res.cloudinary.com/de2i2agjs/image/upload/v1668538514/Seeds_By_Time-1_3_nsf525.png"></img>
-                <Link to="/"><h2 className="text-2xl font-bold text-white">Seed Bank</h2></Link>
+            <div className="justify-self-start flex items-center justify-between py-3 md:py-5 md:block">
+              <div className="self-start flex flex-row ...">
+              <Link to="/"><img alt="seeds by time logo" className="object-scale-down h-12 w-12"
+              src="https://res.cloudinary.com/de2i2agjs/image/upload/v1668648376/Seeds_By_Time-1_5_dautep.png"></img></Link>
+                <Link to="/"><h2 className="text-2xl text-white">Seeds by Time</h2></Link>
                 </div>
                 <div className="md:hidden">
                     <button
@@ -63,10 +63,10 @@ const Nav = () => {
             >
                 <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                     <li className="text-white hover:text-indigo-200">
-                      <Link to="/">Seeds By Time</Link>
+                      <Link to="/">Home</Link>
                     </li>
                     <li className="text-white hover:text-indigo-200">
-                        <a href="#">About</a>
+                        <Link to="/about">About</Link>
                     </li>
                     {/* <li className="text-white hover:text-indigo-200">
 

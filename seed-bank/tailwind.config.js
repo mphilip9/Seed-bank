@@ -5,7 +5,13 @@ module.exports = {
     "./src/**/*.{js, jsx, ts, tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+       Open: ['Open Sans', "sans-serif"],
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+],
 }

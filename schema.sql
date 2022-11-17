@@ -7,13 +7,14 @@ CREATE TABLE plant_dates
 (
   plant_id serial PRIMARY KEY,
   plant_name text,
-  latin_name text,
-  transplant_start date,
-  transplant_end date,
-  direct_sowing_start date,
-  direct_sowing_end date,
-  germination_time integer,
-  time_to_harvest integer
+  first_planting_start date,
+  first_planting_end date,
+  second_planting_start date,
+  second_planting_end date,
+  annual_perennial text,
+  time_to_harvest integer,
+  zone_start integer,
+  zone_end integer
 );
 
 DROP TABLE IF EXISTS plant_detail;
@@ -38,8 +39,8 @@ CREATE TABLE users
   created_at TIMESTAMPTZ DEFAULT Now()
 );
 
-copy plant_dates (plant_name, latin_name, transplant_start, transplant_end, direct_sowing_start, direct_sowing_end,
- germination_time, time_to_harvest) FROM
+copy plant_dates (plant_name, first_planting_start, first_planting_end, second_planting_start, second_planting_end,
+ Annual_perennial, time_to_harvest, zone_start, zone_end) FROM
  '/Users/angelacarrasco/Downloads/plant_dates.csv' DELIMITER ',' CSV HEADER QUOTE '"' ESCAPE '''';
 
  CREATE UNIQUE INDEX idx_user_sub ON users (sub);

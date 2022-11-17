@@ -5,18 +5,7 @@ import { renderToString } from "react-dom/server";
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 
-// const styles = {
-//   fontFamily: "sans-serif",
-//   textAlign: "center"
-// };
-// const colstyle = {
-//   width: "30%"
-// };
-// const tableStyle = {
-//   width: "100%"
-// };
-
-const Home = ({searchZones, currentPlants, currentZone}) => {
+const Home = ({searchZones, currentPlants, currentZone, month, notFound}) => {
   const print = (currentPlants) => {
    const input = document.getElementById('pdf')
    html2canvas(input, {logging: true, letterRendering: 1, useCORS: true}).then(
@@ -30,39 +19,44 @@ const Home = ({searchZones, currentPlants, currentZone}) => {
     }
    )
   };
+  const handleSelect = (e) => {
+    searchZones(currentZone, e.target.value)
+  }
   return (
-    <div className="flex flex-col gap-3 ... ">
-      <div className="self-center text-3xl">Current Climate Zone: {currentZone}</div>
-      <Search searchZones={searchZones}/>
-      {currentPlants.length > 0 ? <button onClick={() => print()}>Download PDF</button> : null}
+    <div className="flex flex-col gap-3  ... ">
+      <div className="self-center text-3xl pt-2">Current Hardiness Zone: {currentZone}</div>
+      <div>
+
+      <Search searchZones={searchZones} month={month}/>
+        {notFound === true ? <div className="text-red-500 pl-2">Zipcode not found. Please try another nearby zipcode</div> : null}
+      </div>
+
+
+      <div className="flex flex-row justify-between ">
+        <div className="flex flex-row pl-3">
+            <select onChange={handleSelect} className="hover:cursor-pointer w-60 border-black md:p-2.5 text-black bg-slate-300 border rounded-full shadow-sm outline-none appearance-none focus:border-indigo-600 ">
+                <option value={0}>January</option>
+                <option value={1}>February</option>
+                <option value={2}>March</option>
+                <option value={3}>April</option>
+                <option value={4}>May</option>
+                <option value={5}>June</option>
+                <option value={6}>July</option>
+                <option value={7}>August</option>
+                <option value={8}>September</option>
+                <option value={9}>October</option>
+                <option value={10}>November</option>
+                <option value={11}>December</option>
+            </select>
+            <div className="pl-2 pt-3">Choose a month to see what you can plant</div>
+            </div>
+            <div className="md:pr-3">{currentPlants.length > 0 ? <button className="align-self-end bg-emerald-700 hover:bg-blue-700 text-white font-bold md:py-2 md:px-4 rounded-full w-15" onClick={() => print()}>Download PDF</button> : null}</div>
+        </div>
       <div id="pdf">
       {currentPlants.length > 0 ? <ByMonth currentPlants={currentPlants} /> : null }
       </div>
     </div>
   )
 }
-
-// const print = () => {
-//   const string = renderToString(<ByMonth />);
-//   const pdf = new jsPDF("p", "mm", "a4");
-//   const columns = [
-//     "SOW Creation Date",
-//     "SOW Start Date",
-//     "Project",
-//     "Last Updated",
-//     "SOW End Date"
-//   ];
-//   var rows = [
-//     [
-//       "Dec 13, 2017",
-//       "Jan 1, 2018",
-//       "ABC Connect - ABCXYZ",
-//       "Dec 13, 2017",
-//       "Dec 31, 2018"
-//     ]
-//   ];
-//   pdf.fromHTML(string);
-//   pdf.save("pdf");
-// };
 
 export default Home;

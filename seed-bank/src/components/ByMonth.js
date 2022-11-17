@@ -1,33 +1,34 @@
-import * as React from 'react';
+import React from 'react';
 
 
 
 const ByMonth = ({currentPlants}) => {
   return (
-    <div className="pt-10">
-    <table className="min-w-full text-left border table-auto">
-        <thead className="border-b bg-gray-800">
+    <div className="lg:pl-3 lg:pr-3 lg:pt-10 sm:pt-2 overflow-x-scroll">
+    <table className="table-auto overflow-x-scroll w-full text-center  ">
+        <thead className="border-b bg-emerald-700">
     <tr>
-      <th scope="col" className="text-sm font-medium text-white px-6 py-4">Common Name</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Latin Name</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Transplant/Indoors</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Direct Sowing</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Time to Harvest</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Germination time</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">More Info</th>
+      <th scope="col" className="text-lg font-medium text-white px-6 py-4">Common Name</th>
+      <th  scope="col" className="text-lg font-medium text-white px-6 py-4">First Planting</th>
+      <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Second Planting</th>
+      <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Days to Maturity</th>
+      <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Annual/Perennial</th>
+      <th  scope="col" className="text-lg font-medium text-white px-6 py-4">Add to plantings</th>
+
       </tr>
   </thead>
   <tbody>
-  {currentPlants.map(row => {
+  {currentPlants.map((row, index) => {
+    let alternate = ''
+    index % 2 === 0 ? alternate = "bg-slate-200" : alternate = "bg-slate-300"
     return(
-    <tr key={row.plant_id}>
-         <td>{row.plant_name}</td>
-         <td>{row.latin_name}</td>
-         <td >Add me</td>
-         <td >Add me</td>
-         <td>{row.time_to_harvest}</td>
-         <td>{row.germination_time}</td>
-         <td>More Info</td>
+    <tr className={`${alternate} items-left`} key={row.plant_id}>
+         <td className="font-black underline pt-2 pb-2 ">{row.plant_name}</td>
+         {row.first_planting_start ? <td className=" pt-2 pb-2">{row.first_planting_start} -- {row.first_planting_end}</td> : <td className="self-center pt-2 pb-2"></td>}
+         {row.second_planting_start ? <td >{row.second_planting_start} -- {row.second_planting_end}</td> : <td></td>}
+         <td className=" pt-2 pb-2">{row.time_to_harvest}</td>
+         <td className=" pt-2 pb-2">{row.annual_perennial}</td>
+         <td className=" pt-2 pb-2 "><a className="hover:text-sky-500" href={`https://extension.psu.edu/catalogsearch/result/?q=${row.plant_name}`}>More Info</a></td>
       </tr>
     )
       })}
