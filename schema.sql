@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS "seedbank";
 
-CREATE DATABASE "seed-bank";
+CREATE DATABASE "seedbank";
 
 DROP TABLE IF EXISTS plant_dates;
 CREATE TABLE plant_dates
