@@ -25,7 +25,8 @@ const Search = ({searchZones, month}) => {
       <TextField
         label="Search by Zipcode"
         sx={{
-          backgroundColor: "white"
+          backgroundColor: "white",
+          borderRadius: "5%"
         }}
         onChange={handleChange}
         value={zoneSearch}
