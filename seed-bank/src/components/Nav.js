@@ -7,14 +7,14 @@ const Nav = () => {
   const { user  } = useAuth0();
   const [navbar, setNavbar] = React.useState(false);
   return (
-    <nav className="w-full bg-emerald-700 shadow text-white">
-    <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+
+    <nav className="justify-between bg-forest  mx-auto w-full md:items-center md:flex text-white">
         <div>
             <div className="justify-self-start flex items-center justify-between py-3 md:py-5 md:block">
               <div className="self-start flex flex-row ...">
               <Link to="/"><img alt="seeds by time logo" className="object-scale-down h-12 w-12"
               src="https://res.cloudinary.com/de2i2agjs/image/upload/v1668648376/Seeds_By_Time-1_5_dautep.png"></img></Link>
-                <Link to="/"><h2 className="text-2xl text-white">Seeds by Time</h2></Link>
+                <Link to="/"><h2 className="pt-1 text-2xl text-white">Seeds by Time</h2></Link>
                 </div>
                 <div className="md:hidden">
                     <button
@@ -63,29 +63,35 @@ const Nav = () => {
             >
                 <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                     <li className="text-white hover:text-indigo-200">
-                      <Link to="/">Home</Link>
                     </li>
-                    <li className="text-white hover:text-indigo-200">
-                        <Link to="/about">About</Link>
-                    </li>
+
                     {/* <li className="text-white hover:text-indigo-200">
 
                     </li> */}
-                    <li className="text-white hover:text-indigo-200">
-                      {user ? <Link to="/myplants">My Plants</Link> : null}
-                    </li>
+
                 </ul>
 
                 <div className="mt-3 space-y-2 lg:hidden md:inline-block">
+                    <li className="text-white hover:text-indigo-200">
+                            <Link to="/about">About</Link>
+                        </li>
                   {navbar ? <AuthenticationButton /> : null}
                 </div>
             </div>
         </div>
-        <div className="hidden space-x-2 md:inline-block">
+        <div className=" hidden space-x-2 md:flex items-center">
+        <div className="pb-2 pr-3 text-white hover:text-indigo-200">
+                        <Link to="/about">About</Link>
+                    </div>
+                    <div className="pb-2 pr-3 text-white hover:text-indigo-200">
+                      {user ? <Link to="/myplants">My Plants</Link> : null}
+                    </div>
+                    <div className="pr-2">
         <AuthenticationButton />
         </div>
-    </div>
-</nav>
+        </div>
+    </nav>
+
 /* <div className="nav">
   <div className="nav-header">
     <div className="nav-title">

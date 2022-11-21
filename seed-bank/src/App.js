@@ -70,7 +70,7 @@ function App() {
     }
   }, [user])
   return (
-    <div className='bg-slate-100 h-screen font-Open dark:bg-gray-700' >
+    <div className='bg-sand h-screen font-Open dark:bg-gray-700' >
     <div className="App">
       <Nav />
       <div >
