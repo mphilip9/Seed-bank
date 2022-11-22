@@ -6,7 +6,7 @@ const ModalZone = ({zone}) => {
     <>
       <button
         className=" text-white
-      font-bold text-2xl px-6 py-3 rounded-full bg-forest  hover:text-blue-400 hover:cursor-pointer"
+      font-bold text-2xl px-6 py-3 rounded-full bg-forest dark:bg-black  hover:text-blue-400 hover:cursor-pointer"
         type="button"
         onClick={() => setShowModal(true)}
       >

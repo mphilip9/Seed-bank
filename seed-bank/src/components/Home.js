@@ -26,13 +26,12 @@ const Home = ({searchZones, currentPlants, currentZone, month, notFound}) => {
   }
   return (
     <div className="flex flex-col gap-3  ... ">
+      {/* image dive */}
 
       <div className="flex flex-row self-center pt-2">
         <ModalZone zone={currentZone}/>
         <ModalCaution />
         </div>
-
-
       <div>
 
       <Search searchZones={searchZones} month={month}/>
@@ -58,7 +57,7 @@ const Home = ({searchZones, currentPlants, currentZone, month, notFound}) => {
             </select>
             <div className="pl-2 pt-3">Choose a month to see what you can plant</div>
             </div>
-            <div className="md:pr-3">{currentPlants.length > 0 ? <button className="align-self-end bg-forest hover:bg-blue-700 text-white font-bold md:py-2 md:px-4 rounded-full w-15" onClick={() => print()}>Download PDF</button> : null}</div>
+            <div className="md:pr-3">{currentPlants.length > 0 ? <button className="align-self-end dark:bg-black bg-forest hover:bg-blue-700 text-white font-bold md:py-2 md:px-4 rounded-full w-15" onClick={() => print()}>Download PDF</button> : null}</div>
         </div>
       <div id="pdf">
       {currentPlants.length > 0 ? <ByMonth currentPlants={currentPlants} /> : null }

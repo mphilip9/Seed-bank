@@ -1,14 +1,15 @@
 import React from 'react';
 import AuthenticationButton from './Authentication-button'
+import DarkButton from './DarkButton'
 import { useAuth0 } from '@auth0/auth0-react';
 import {Link} from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({darkToggle}) => {
   const { user  } = useAuth0();
   const [navbar, setNavbar] = React.useState(false);
   return (
 
-    <nav className="justify-between bg-forest  mx-auto w-full md:items-center md:flex text-white">
+    <nav className="justify-between bg-forest dark:bg-black   mx-auto w-full md:items-center md:flex text-white">
         <div>
             <div className="justify-self-start flex items-center justify-between py-3 md:py-5 md:block">
               <div className="self-start flex flex-row ...">
@@ -72,15 +73,16 @@ const Nav = () => {
                 </ul>
 
                 <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-                    <li className="text-white hover:text-indigo-200">
+                    {/* <li className="text-white hover:text-indigo-200">
                             <Link to="/about">About</Link>
-                        </li>
+                        </li> */}
                   {navbar ? <AuthenticationButton /> : null}
                 </div>
             </div>
         </div>
-        <div className=" hidden space-x-2 md:flex items-center">
-        <div className="pb-2 pr-3 text-white hover:text-indigo-200">
+        <div className=" hidden space-x-2 sm:flex items-center">
+        <div className=" flex pb-2 pr-3 text-white hover:text-indigo-200">
+          <DarkButton darkToggle={darkToggle}/>
                         <Link to="/about">About</Link>
                     </div>
                     <div className="pb-2 pr-3 text-white hover:text-indigo-200">
