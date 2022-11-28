@@ -7,6 +7,7 @@
 - Express
 - Tailwind
 - Auth0
+- React Router 
 
 ### About
 A simple application that you can use to search what you can plant in your garden each month based on your hardiness zone.
@@ -21,7 +22,7 @@ as well with the click of the button in case you wanted to print it out.
 #### Front-end
 The client was made using Create-React-App and the server using express and Node.js. The front-end is hosted on Heroku and the database is on an AWS EC2 instance.
 To setup the front-end, run `npm install` in the seed-bank directory for the client and the seed-bank directory for the server. For development, run
-`npm start`. The files are served from the express server. I use PG Node to connect the server to the postgreSQL database, and the queries can all be found in 
+`npm start` to start the server and `npm start` in the client directory to create the bundle for the React code. The files are served from the express server. I use PG Node to connect the server to the postgreSQL database, and the queries can all be found in 
 the controllers.js file in the database directory.
 #### Database
 There is a .sql to seed the database, which takes a csv of plant data. I would like to use an API in order to get data on a broader range of hardiness zones, but
