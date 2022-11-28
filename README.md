@@ -26,3 +26,13 @@ the controllers.js file in the database directory.
 #### Database
 There is a .sql to seed the database, which takes a csv of plant data. I would like to use an API in order to get data on a broader range of hardiness zones, but
 I couldn't find one for that purpose. If anyone knows about an API or a dataset that would help let me know!
+
+### Future Enhancements
+#### Track plantings
+Right now the site does have authentication using Auth0, and there is a table in the app's database to store user info. This will be used to allow users
+to "plant" one of the crops listed. The site will calculate an estimated harvest date and provide the user with some helpful tips for growing that particular plant. I may also add in reminders (with the users permission) for watering, harvesting and protection from harmful weather events. 
+#### Expand covered hardiness zones
+I mentioned it before but I want to provide data for all zones in the lower 48 states.
+#### A mobile app
+Once these changes are implemented, I will develop a mobile version for iOS using React Native. 
+
