@@ -15,6 +15,8 @@ I wanted to make the UI simple and easily readable, so I kept the plant details 
 The plant data is stored using postgreSQL and currently only covers zones 3-8 reliably. You can save the list for the given month as as a pdf file
 as well with the click of the button in case you wanted to print it out.
 
+![Alt Text](https://github.com/mphilip9/seed-bank/blob/main/Nov-28-2022%2014-38-29.gif)
+
 ### Installation
 #### Front-end
 The client was made using Create-React-App and the server using express and Node.js. The front-end is hosted on Heroku and the database is on an AWS EC2 instance.
