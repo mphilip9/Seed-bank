@@ -1,6 +1,8 @@
 import React from 'react';
 import Search from './Search';
 import ByMonth from './ByMonth'
+import ModalZone from './ModalZone'
+import ModalCaution from './ModalCaution'
 import { renderToString } from "react-dom/server";
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
@@ -24,7 +26,12 @@ const Home = ({searchZones, currentPlants, currentZone, month, notFound}) => {
   }
   return (
     <div className="flex flex-col gap-3  ... ">
-      <div className="self-center text-3xl pt-2">Current Hardiness Zone: {currentZone}</div>
+      {/* image dive */}
+
+      <div className="flex flex-row self-center pt-2">
+        <ModalZone zone={currentZone}/>
+        <ModalCaution />
+        </div>
       <div>
 
       <Search searchZones={searchZones} month={month}/>
@@ -34,7 +41,7 @@ const Home = ({searchZones, currentPlants, currentZone, month, notFound}) => {
 
       <div className="flex flex-row justify-between ">
         <div className="flex flex-row pl-3">
-            <select onChange={handleSelect} className="hover:cursor-pointer w-60 border-black md:p-2.5 text-black bg-slate-300 border rounded-full shadow-sm outline-none appearance-none focus:border-indigo-600 ">
+            <select onChange={handleSelect} className="hover:cursor-pointer w-60 border-black md:p-2.5 text-black bg-white border rounded-full shadow-sm outline-none appearance-none focus:border-indigo-600 ">
                 <option value={0}>January</option>
                 <option value={1}>February</option>
                 <option value={2}>March</option>
@@ -45,12 +52,12 @@ const Home = ({searchZones, currentPlants, currentZone, month, notFound}) => {
                 <option value={7}>August</option>
                 <option value={8}>September</option>
                 <option value={9}>October</option>
-                <option value={10}>November</option>
+                <option selected value={10}>November</option>
                 <option value={11}>December</option>
             </select>
             <div className="pl-2 pt-3">Choose a month to see what you can plant</div>
             </div>
-            <div className="md:pr-3">{currentPlants.length > 0 ? <button className="align-self-end bg-emerald-700 hover:bg-blue-700 text-white font-bold md:py-2 md:px-4 rounded-full w-15" onClick={() => print()}>Download PDF</button> : null}</div>
+            <div className="md:pr-3">{currentPlants.length > 0 ? <button className="align-self-end dark:bg-black bg-forest hover:bg-blue-700 text-white font-bold md:py-2 md:px-4 rounded-full w-15" onClick={() => print()}>Download PDF</button> : null}</div>
         </div>
       <div id="pdf">
       {currentPlants.length > 0 ? <ByMonth currentPlants={currentPlants} /> : null }

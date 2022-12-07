@@ -21,6 +21,7 @@ import './assets/App.css';
 
 function App() {
   // const [darkToggle, setDarkToggle] = React.useState(false)
+  const [darkMode, setDarkMode] = useState('')
   const { user  } = useAuth0();
   const [currentZone, setCurrentZone] = useState("7a")
   const [currentPlants, setCurrentPlants] = useState([])
@@ -69,10 +70,15 @@ function App() {
       retrieveUserData(user.sub, currentZone)
     }
   }, [user])
+
+  const darkToggle = () => {
+    darkMode === 'dark' ? setDarkMode('') : setDarkMode('dark')
+  }
   return (
-    <div className='bg-slate-100 h-screen font-Open dark:bg-gray-700' >
+    <div className={darkMode}>
+    <div className='bg-sand h-screen font-Open dark:bg-gray-700 dark:text-white' >
     <div className="App">
-      <Nav />
+      <Nav darkToggle={darkToggle}/>
       <div >
       <Routes>
           <Route path="/" element={<Home month={month} searchZones={searchZones} currentPlants={currentPlants} currentZone={currentZone} notFound={notFound}/>}/>
@@ -81,8 +87,9 @@ function App() {
       </Routes>
       </div>
 
-    </div>
-     </div>
+      </div>
+      </div>
+   </div>
   );
 }
 

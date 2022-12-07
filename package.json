@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
+    "build": "cd seed-bank && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,5 +20,8 @@
     "path": "^0.12.7",
     "pg": "^8.8.0",
     "sequelize": "^6.25.5"
+  },
+  "engines": {
+    "node": "v16.16.0"
   }
 }

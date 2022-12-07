@@ -19,13 +19,14 @@ const Search = ({searchZones, month}) => {
     e.preventDefault()
   }
   return (
-    <div className=" pl-3 flex flex-row ...">
+    <div className=" pl-3 flex flex-row bg-white...">
 
 
       <TextField
         label="Search by Zipcode"
         sx={{
-          borderRadius: "50%"
+          backgroundColor: "white",
+          borderRadius: "5%"
         }}
         onChange={handleChange}
         value={zoneSearch}
