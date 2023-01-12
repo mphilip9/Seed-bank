@@ -7,8 +7,16 @@ import { TextField } from "@mui/material";
 const Search = ({ searchZones, month }) => {
   const [zoneSearch, setZoneSearch] = useState("");
 
+  // to ensure hitting enter triggers search
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      searchZones(zoneSearch, month);
+      setZoneSearch("");
+      e.preventDefault();
+      e.target.value = "";
+    }
+  };
   const handleChange = (e) => {
-    console.log(e.target.value);
     setZoneSearch(e.target.value);
   };
   const handleClick = (e) => {
@@ -25,6 +33,7 @@ const Search = ({ searchZones, month }) => {
           borderRadius: "5%",
         }}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
         value={zoneSearch}
         InputProps={{
           endAdornment: (
