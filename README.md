@@ -13,7 +13,7 @@
 A simple application that you can use to search what you can plant in your garden each month based on your hardiness zone.
 I made this specifically for my mom because she wanted an easy way to see what you can plant in a given month.
 I wanted to make the UI simple and easily readable, so I kept the plant details to a minimum.
-The plant data is stored using postgreSQL and currently only covers zones 3-8 reliably. You can save the list for the given month as as a pdf file
+The plant data is stored using postgreSQL and currently only covers zones 3-8 reliably. You can save the list for the given month as a pdf file
 as well with the click of the button in case you wanted to print it out.
 
 ![Alt Text](https://github.com/mphilip9/seed-bank/blob/main/Nov-28-2022%2014-38-29.gif)
