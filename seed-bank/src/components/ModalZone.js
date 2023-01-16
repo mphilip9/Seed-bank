@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 
-const ModalZone = ({ zone }) => {
-  const [showModal, setShowModal] = useState(false);
+const ModalZone = ({ zone, triggerModal, showModal }) => {
   return (
     <>
       <button
         className=" text-white
       font-bold text-2xl px-6 py-3 rounded-full bg-forest dark:bg-black  hover:text-blue-400 hover:cursor-pointer"
         type="button"
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          triggerModal(true);
+          console.log("clicked", showModal);
+        }}
       >
         Current Hardiness Zone: {zone}
       </button>
       {showModal ? (
         <>
-          <div className=" flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div
+            onClick={() => triggerModal(false)}
+            className=" flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-emerald-700 outline-none focus:outline-none">
                 <img
@@ -36,7 +41,7 @@ const ModalZone = ({ zone }) => {
                   <button
                     className="text-emerald-700 bg-red-400  background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => triggerModal(false)}
                   >
                     Close
                   </button>

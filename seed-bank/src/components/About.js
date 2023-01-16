@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div>
-      <div className="flex flex-col  pl-12 pr-12 pt-10">
+      <div className="flex flex-col  pl-12 pr-12 pt-10 dark:text-white">
         <h1 className="text-2xl pb-3 underline ">Seeds by Time</h1>
         <p className="ml-5">
           When you are new to gardening it can be hard to figure out what you
@@ -21,14 +21,16 @@ const About = () => {
           Seeds by Time 2.0 -- What is coming
         </h2>
         <ul className="list-disc ml-5">
-          <div className="text-black underline">More Zones</div>
+          <div className="text-black underline dark:text-white">More Zones</div>
           <li>
             Right now my database only has information on zones 3-8, and I would
             like to account for all zones within the lower 48 states of the US.
             I have not found any reliable data or APIs for this so if anyone
             knows of anything please let me know.
           </li>
-          <div className="text-black underline">Track plantings</div>
+          <div className="text-black underline dark:text-white">
+            Track plantings
+          </div>
           <li>
             The other main feature of the site which will be added soon is
             planting seeds and keeping track of them in the app. You will be
@@ -37,7 +39,9 @@ const About = () => {
             particular plants, and the site will send you notifications to
             remind you to water and an estimated harvest time.
           </li>
-          <li className="text-black">A mobile app of this site for Android.</li>
+          <li className="text-black dark:text-white">
+            A mobile app of this site for Android.
+          </li>
         </ul>
       </div>
       <div className="flex flex-col  pl-12 pr-12 pt-10">
@@ -45,7 +49,7 @@ const About = () => {
         <p className="ml-5">Shoot me an email: max.philip1@gmail.com</p>
         <p className="ml-5">
           Checkout the repo on{" "}
-          <a href="https://github.com/mphilip9" className="text-blue-500 ">
+          <a href="https://github.com/mphilip9" className="text-blue-500">
             github
           </a>
         </p>

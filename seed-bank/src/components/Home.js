@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import Search from "./Search";
 import ByMonth from "./ByMonth";
 import ModalZone from "./ModalZone";
@@ -8,6 +8,11 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 const Home = ({ searchZones, currentPlants, currentZone, month, notFound }) => {
+  const [showModal, setShowModal] = useState(false);
+  // trigger modal function
+  const triggerModal = (bool) => {
+    setShowModal(bool);
+  };
   const print = (currentPlants) => {
     const input = document.getElementById("pdf");
     html2canvas(input, {
@@ -31,13 +36,18 @@ const Home = ({ searchZones, currentPlants, currentZone, month, notFound }) => {
       {/* image dive */}
 
       <div className="flex flex-row self-center pt-2">
-        <ModalZone zone={currentZone} />
+        <ModalZone
+          zone={currentZone}
+          triggerModal={triggerModal}
+          showModal={showModal}
+        />
         <ModalCaution />
       </div>
+      <div></div>
       <div>
         <Search searchZones={searchZones} month={month} />
         {notFound === true ? (
-          <div className="text-red-500 pl-2">
+          <div className="text-red-700 pl-2 pt-3">
             Zipcode not found. Please try another nearby zipcode
           </div>
         ) : null}
@@ -83,8 +93,8 @@ const Home = ({ searchZones, currentPlants, currentZone, month, notFound }) => {
         {currentPlants.length > 0 ? (
           <ByMonth currentPlants={currentPlants} />
         ) : (
-          <div className="flex justify-center">
-            <p className="font-black text-red-500">
+          <div className="flex justify-center pt-10">
+            <p className="font-black text-xl text-red-700 ml-3 mr-3">
               Nothing to plant this month. Must be winter, which is a great time
               to plan your garden for the new year!
             </p>
